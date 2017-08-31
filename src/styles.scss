@@ -1,1 +1,160 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+
+body, html {
+  background-color: #e9ebee;
+  color: #1d2129;
+  font-family: Ubuntu,Helvetica,Arial;
+  font-size: 16px;
+  padding: 1rem;
+}
+
+.header {
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
+.panel {
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  position: relative;
+
+  .header {
+    padding: 1rem;
+    display: flex;
+    align-items: stretch;
+    width: 200px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .left {
+      width: 32px;
+      height: 32px;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ddd;
+
+      .tick {
+        width: 50%;
+        height: 50%;
+        opacity: 0.1;
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+
+    .right {
+      background-color: #f9f9f9;
+      display: flex;
+      align-items: center;
+      border: 1px solid #eee;
+      border-left: none;
+
+      h2.title {
+        color: #919191;
+        color: #555;
+        display: inline-block;
+        font-size: 1.2rem;
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .body {
+    padding: 0 1rem;
+    padding-top: 0;
+  }
+
+  .footer {
+    padding: .5rem;
+    border-top: 1px solid #eee;
+    font-size: 1.2rem;
+    color: #555;
+
+    .subtotal {
+      font-weight: bold;
+    }
+  }
+}
+
+h1 {
+  padding: .5rem;
+  padding-top: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #777;
+}
+
+.item {
+  float: left;
+  margin-right: 20px;
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 1.2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .left {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+
+    .tick {
+      width: 50%;
+      height: 50%;
+      opacity: 0.1;
+
+      &.active {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .right {
+    padding: 0.2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+
+    .title {
+      font-size: 1rem;
+      color: #555;
+      margin: 0;
+      padding: 0;
+    }
+
+    .price {
+      font-size: 0.8rem;
+      color: #777;
+    }
+  }
+
+
+}
+
+.panel {
+  &.panel-total {
+    font-size: 2rem;
+    padding: .5rem 1rem;
+
+    .total {
+      font-weight: bold;
+    }
+  }
+}
