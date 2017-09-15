@@ -39,3 +39,14 @@
 <div class="panel panel-total">
   Total <span class="total">${{total().toFixed(2)}}</span>
 </div>
+
+<div class="panel">
+  <div class="header">
+    <h2 class="title">
+      Contacto
+    </h2>
+  </div>
+  <div class="body">
+    <app-contact (contactData)="onContactData($event)"></app-contact>
+  </div>
+</div>

@@ -115,4 +115,8 @@ export class AppComponent implements OnInit {
       item.selected = section.selected;
     });
   }
+
+  onContactData(contact: any) {
+    // console.log(contact);
+  }
 }
