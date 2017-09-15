@@ -2,51 +2,8 @@
   <h1>PRESUPUESTADOR</h1>
 </header>
 
-<h1>Seleccione los servicios y subservicios</h1>
+<app-plan-selection (selectedPlan)="planType = $event"></app-plan-selection>
 
-<div *ngFor="let section of fields" class="panel">
+<app-services (selectedServices)="selectedServices = $event"></app-services>
 
-  <div class="header" (click)="selectSection(section)">
-    <div class="left">
-      <img [class.active]="section.selected" src="/assets/tick.png" class="tick" />
-    </div>
-    <div class="right">
-      <h2 class="title">{{section.title}}</h2>
-    </div>
-  </div>
-
-  <div class="body">
-
-    <div *ngFor="let item of section.items" class="item" [class.selected]="item.selected" (click)="item.selected = !item.selected">
-      <div class="left">
-        <img [class.active]="item.selected" src="/assets/tick.png" class="tick" />
-      </div>
-
-      <div class="right">
-        <h3 class="title">{{item.title}}</h3>
-        <span class="price">${{item.value.toFixed(2)}}</span>
-      </div>
-    </div>
-
-    <div class="clearfix"></div>
-  </div>
-
-  <div class="footer">
-    Subtotal <span class="subtotal">${{subtotal(section.items).toFixed(2)}}</span>
-  </div>
-</div>
-
-<div class="panel panel-total">
-  Total <span class="total">${{total().toFixed(2)}}</span>
-</div>
-
-<div class="panel">
-  <div class="header">
-    <h2 class="title">
-      Contacto
-    </h2>
-  </div>
-  <div class="body">
-    <app-contact (contactData)="onContactData($event)"></app-contact>
-  </div>
-</div>
+<app-contact (contactData)="contactData = $event"></app-contact>

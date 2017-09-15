@@ -10,7 +10,7 @@ export class ContactComponent implements OnInit {
   @Output() contactData = new EventEmitter<any>();
 
   contactForm: FormGroup;
-  businessTypes: string[];
+  businessTypes = ['Emprendimiento', 'Empresa'];
 
   constructor(private fb: FormBuilder) {}
 
@@ -24,7 +24,6 @@ export class ContactComponent implements OnInit {
       message: ['']
     });
 
-    this.businessTypes = ['Emprendimiento', 'Empresa'];
 
     this.contactForm.valueChanges.subscribe(data => this.contactData.emit(data));
   }
