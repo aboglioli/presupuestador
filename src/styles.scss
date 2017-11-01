@@ -70,8 +70,8 @@ body, html {
   }
 
   .body {
-    padding: 0 1rem;
-    padding-top: 0;
+    display: flex;
+    align-items: baseline;
   }
 
   .footer {
@@ -96,51 +96,65 @@ h1 {
 
 .item {
   float: left;
-  margin-right: 20px;
   display: flex;
-  align-items: stretch;
   margin-bottom: 1.2rem;
+  margin-right: 1.2rem;
+  flex-direction: column;
 
   &:hover {
     cursor: pointer;
   }
 
   .left {
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #eee;
+    margin-bottom: -1px;
+    z-index: 10;
 
     .tick {
-      width: 50%;
-      height: 50%;
+      width: 65%;
+      height: 65%;
       opacity: 0.1;
 
       &.active {
         opacity: 0.8;
       }
     }
+
+    &.selected {
+      border: 1px solid #999;
+      border-bottom: none;
+    }
   }
 
   .right {
-    padding: 0.2rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     background-color: #f9f9f9;
+    border: 1px solid #eee;
 
     .title {
+      padding: 0.5rem 1rem;
       font-size: 1rem;
       color: #555;
       margin: 0;
-      padding: 0;
     }
 
     .price {
+      padding: 0.2rem 1rem;
+      margin-top: 3px;
       font-size: 0.8rem;
       color: #777;
+      background-color: #f2f2f2;
+    }
+
+    &.selected {
+      border: 1px solid #999;
     }
   }
 

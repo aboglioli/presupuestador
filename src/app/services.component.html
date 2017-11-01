@@ -1,37 +1,13 @@
-<h1>Seleccione los servicios y subservicios</h1>
-
-<div *ngFor="let section of fields" class="panel">
-
-  <div class="header" (click)="selectSection(section)">
-    <div class="left">
-      <img [class.active]="section.selected" src="/assets/tick.png" class="tick" />
-    </div>
-    <div class="right">
-      <h2 class="title">{{section.title}}</h2>
-    </div>
+<div class="row">
+  <div class="col-12">
+    <h1>Seleccione los servicios y subservicios</h1>
   </div>
 
-  <div class="body">
-
-    <div *ngFor="let item of section.items" class="item" [class.selected]="item.selected" (click)="item.selected = !item.selected">
-      <div class="left">
-        <img [class.active]="item.selected" src="/assets/tick.png" class="tick" />
-      </div>
-
-      <div class="right">
-        <h3 class="title">{{item.title}}</h3>
-        <span class="price">${{item.price.monthly.toFixed(2)}}</span>
-      </div>
-    </div>
-
-    <div class="clearfix"></div>
+  <div class="col">
+    <app-service *ngFor="let section of sections" [section]="section"></app-service>
   </div>
 
-  <div class="footer">
-    Subtotal <span class="subtotal">${{subtotal(section.items).toFixed(2)}}</span>
+  <div class="col-3">
+    <app-total [sections]="sections"></app-total>
   </div>
-</div>
-
-<div class="panel panel-total">
-  Total <span class="total">${{total().toFixed(2)}}</span>
 </div>

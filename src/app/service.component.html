@@ -1,0 +1,29 @@
+<div class="panel">
+  <div class="header" (click)="selectSection(section)">
+    <div class="left">
+      <img [class.active]="section.selected" src="/assets/tick.png" class="tick" />
+    </div>
+    <div class="right">
+      <h2 class="title">{{section.title}}</h2>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-5">
+          <app-service-item [item]="firstItem()" first="true"></app-service-item>
+        </div>
+        <div class="col">
+          <app-service-item *ngFor="let item of lastItems()" [item]="item"></app-service-item>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="footer">
+    Subtotal <span class="subtotal">${{subtotal(section.items).toFixed(2)}}</span>
+  </div>
+</div>

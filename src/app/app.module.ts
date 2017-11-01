@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { ContactComponent } from './contact.component';
 import { PlanSelectionComponent } from './plan-selection.component';
 import { ServicesComponent } from './services.component';
+import { TotalComponent } from './total.component';
+import { ServiceItemComponent } from './service-item.component';
+import { ServiceComponent } from './service.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlanSelectionComponent,
     ServicesComponent,
-    ContactComponent
+    ContactComponent,
+    TotalComponent,
+    ServiceItemComponent,
+    ServiceComponent
   ],
   imports: [
     BrowserModule,
