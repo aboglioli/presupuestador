@@ -1,6 +1,11 @@
 <div  class="item" [style.width]="first ? '100%' : ''" [class.selected]="item.selected" (click)="item.selected = !item.selected">
   <div class="left" [class.selected]="item.selected">
-    <img [class.active]="item.selected" src="/assets/tick.png" class="tick" />
+    <div class="image">
+      <img [class.active]="item.selected" src="/assets/tick.png" class="tick" />
+    </div>
+    <div *ngIf="first" class="title">
+      <h2>BASE</h2>
+    </div>
   </div>
 
   <div class="right" [class.selected]="item.selected">

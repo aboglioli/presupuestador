@@ -1,5 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
 
+* {
+  box-sizing: border-box;
+}
+
 body, html {
   background-color: #e9ebee;
   color: #1d2129;
@@ -106,28 +110,48 @@ h1 {
   }
 
   .left {
-    width: 25px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eee;
-    margin-bottom: -1px;
     z-index: 10;
+    display: flex;
 
-    .tick {
-      width: 65%;
-      height: 65%;
-      opacity: 0.1;
+    .image {
+      width: 25px;
+      height: 25px;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: -1px;
 
-      &.active {
-        opacity: 0.8;
+      .tick {
+        width: 65%;
+        height: 65%;
+        opacity: 0.1;
+
+        &.active {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .title {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #eee;
+      color: #999;
+
+      h2 {
+        margin: 0;
+        font-size: 0.9rem;
       }
     }
 
     &.selected {
-      border: 1px solid #999;
-      border-bottom: none;
+      .image {
+        border: 1px solid #999;
+        border-bottom: none;
+      }
     }
   }
 

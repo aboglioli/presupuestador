@@ -2,5 +2,11 @@
   <h1>PRESUPUESTADOR</h1>
 </header>
 
-<app-services (selectedServices)="selectedServices = $event"></app-services>
+<app-services [services]="services"></app-services>
 <app-contact (contactData)="contactData = $event"></app-contact>
+
+<div class="row">
+  <div class="col text-right">
+    <button class="btn btn-primary" (click)="submit()">Enviar</button>
+  </div>
+</div>

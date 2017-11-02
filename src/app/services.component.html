@@ -3,11 +3,11 @@
     <h1>Seleccione los servicios y subservicios</h1>
   </div>
 
-  <div class="col">
+  <div class="col-12 col-lg">
     <app-service *ngFor="let section of sections" [section]="section"></app-service>
   </div>
 
-  <div class="col-3">
+  <div class="col-12 col-lg-3">
     <app-total [sections]="sections"></app-total>
   </div>
 </div>

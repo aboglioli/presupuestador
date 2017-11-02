@@ -15,9 +15,7 @@ export class ServiceComponent implements OnInit {
   selectSection(section: any) {
     section.selected = !section.selected;
 
-    if(section.items.length > 0) {
-      section.items[0].selected = section.selected;
-    }
+    section.items.forEach(item => item.selected = section.selected);
   }
 
   subtotal(items: any[]) {

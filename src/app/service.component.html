@@ -11,10 +11,10 @@
   <div class="body">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-5">
+        <div class="col-12 col-md-5">
           <app-service-item [item]="firstItem()" first="true"></app-service-item>
         </div>
-        <div class="col">
+        <div class="col-12 col-md">
           <app-service-item *ngFor="let item of lastItems()" [item]="item"></app-service-item>
         </div>
       </div>

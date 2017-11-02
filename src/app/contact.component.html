@@ -5,18 +5,45 @@
     </h2>
   </div>
   <div class="body">
-    <form [formGroup]="contactForm">
-      <select formControlName="businessType">
-        <option *ngIf="!contactForm.get('businessType').dirty" value="">Seleccione tipo de negocio</option>
-        <option *ngFor="let businessType of businessTypes" [value]="businessType">
-          {{businessType}}
-        </option>
-      </select>
-      <input formControlName="name" />
-      <input formControlName="phone" />
-      <input formControlName="email" />
-      <input formControlName="url" />
-      <textarea formControlName="message"></textarea>
-    </form>
+    <div class="container-fluid">
+      <form [formGroup]="contactForm">
+        <div class="form-row">
+
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <input formControlName="name" class="form-control" placeholder="Nombre" />
+            </div>
+            <div class="form-group">
+              <input formControlName="phone" class="form-control" placeholder="Teléfono/Celular" />
+            </div>
+            <div class="form-group">
+              <input formControlName="email" class="form-control" placeholder="E-mail" />
+            </div>
+            <div class="form-group">
+              <input formControlName="url" class="form-control" placeholder="Web" />
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6">
+            <div class="form-group">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" formControlName="businessType" value="Emprendimiento"> Emprendimiento
+                </label>
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" formControlName="businessType" value="Empresa"> Empresa
+                </label>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea formControlName="message" class="form-control" id="message" style="height: 128px"></textarea>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
   </div>
 </div>
