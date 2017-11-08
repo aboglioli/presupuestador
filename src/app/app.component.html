@@ -5,18 +5,6 @@
 
   <app-services [services]="services"></app-services>
 
-  <div class="panel panel-total">
-    <div class="body">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col">
-            Total <span class="total">${{total(services).toFixed(2)}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <app-contact
     (contactData)="contactData = $event"
     (contactValid)="contactValid = $event">

@@ -25,46 +25,46 @@ export class AppComponent implements OnInit {
       {
         title: 'Web',
         items: [
-          {title: ['UX/UI', 'SEO', 'Servidor y dominio'], price: 4000},
-          {title: ['Landing page'], price: 0.0},
-          {title: ['Web personalizada'], price: 0.0},
-          {title: ['E-commerce'], price: 0.0},
+          {title: ['UX/UI', 'SEO', 'Servidor y dominio'], price: 4000, priceType: 'monthly'},
+          {title: ['Landing page'], price: 4000.0, priceType: 'fixed'},
+          {title: ['Web personalizada'], price: 6000.0, priceType: 'fixed'},
+          {title: ['E-commerce'], price: 20000.0, priceType: 'fixed'},
         ]
       },
       {
         title: 'Marketing',
         items: [
-          {title: ['Análsis de mercado', 'Análisis de competencia', 'Análisis de público objetivo', 'Segmentación y posicionamiento', 'Definición de plan estratégico', ], price: 2000},
-          {title: ['Asesoría de Marketing Digital'], price: 0.0},
-          {title: ['Marketing en punto de venta'], price: 0.0}
+          {title: ['Análsis de mercado', 'Análisis de competencia', 'Análisis de público objetivo', 'Segmentación y posicionamiento', 'Definición de plan estratégico', ], price: 2000, priceType: 'monthly'},
+          {title: ['Asesoría de Marketing Digital'], price: 2000.0, priceType: 'fixed'},
+          {title: ['Marketing en punto de venta'], price: 2000.0, priceType: 'monthly'}
         ]
       },
       {
         title: 'Diseño',
         items: [
-          {title: ['Identidad e Imagen Corporativa', 'Manual de Marca'], price: 4000},
-          {title: ['Papelería comercial'], price: 0.0},
-          {title: ['Cartelería'], price: 0.0},
-          {title: ['Merchandising'], price: 0.0},
-          {title: ['Diseño de punto de venta'], price: 0.0},
-          {title: ['Banners'], price: 0.0},
-          {title: ['Diseño de revistas, folletos y diarios'], price: 0.0},
+          {title: ['Identidad e Imagen Corporativa', 'Manual de Marca'], price: 4000, priceType: 'fixed'},
+          {title: ['Papelería comercial'], price: 500.0, priceType: 'fixed'},
+          {title: ['Cartelería'], price: 500.0, priceType: 'fixed'},
+          {title: ['Merchandising'], price: 1000.0, priceType: 'fixed'},
+          {title: ['Diseño de punto de venta'], price: 1500.0, priceType: 'fixed'},
+          {title: ['Banners'], price: 350.0, priceType: 'fixed'},
+          {title: ['Diseño de revistas, folletos y diarios'], price: 500.0, priceType: 'fixed'},
         ]
       },
       {
         title: 'Redes Sociales',
         items: [
-          {title: ['Configuración de cuentas', 'Atención al cliente', 'Generación de base de datos', 'Gestión de Facebook', 'Generación de contenido'], price: 4000},
-          {title: ['Gestión de Instagram'], price: 1000},
-          {title: ['Gestión de Twitter'], price: 1000},
-          {title: ['Gestión de Youtube'], price: 1000},
-          {title: ['Diseño de flyers'], price: 1000},
+          {title: ['Configuración de cuentas', 'Atención al cliente', 'Generación de base de datos', 'Gestión de Facebook', 'Generación de contenido'], price: 4000, priceType: 'monthly'},
+          {title: ['Gestión de Instagram'], price: 1000, priceType: 'monthly'},
+          {title: ['Gestión de Twitter'], price: 1000, priceType: 'monthly'},
+          {title: ['Gestión de Youtube'], price: 1000, priceType: 'monthly'},
+          {title: ['Diseño de flyers'], price: 1000, priceType: 'monthly'},
         ]
       },
       {
         title: 'Desarrollo/Sistemas',
         items: [
-          {title: ['Administración de servidor', 'Mantenimiento web', 'Instalación y configuración de sistemas', ], price: 1000},
+          {title: ['Administración de servidor', 'Mantenimiento web', 'Instalación y configuración de sistemas', ], price: 1200, priceType: 'monthly'},
           {title: ['Sistema personalizado']},
           {title: ['Aplicación móvil']},
           {title: ['Aplicación de escritorio']}
@@ -73,12 +73,12 @@ export class AppComponent implements OnInit {
       {
         title: 'Publicidad Online',
         items: [
-          {title: ['Configuración de perfiles publicitarios', 'Planificación de anuncios'], price: 3000},
-          {title: ['Ejecución en Facebook'], price: 1000},
-          {title: ['Ejecución en Instagram'], price: 1000},
-          {title: ['Ejecución en Twitter'], price: 1000},
-          {title: ['Ejecución en Youtube'], price: 1000},
-          {title: ['Ejecución en Google'], price: 1000},
+          {title: ['Configuración de perfiles publicitarios', 'Planificación de anuncios'], price: 3000, priceType: 'monthly'},
+          {title: ['Ejecución en Facebook'], price: 1000, priceType: 'monthly'},
+          {title: ['Ejecución en Instagram'], price: 1000, priceType: 'monthly'},
+          {title: ['Ejecución en Twitter'], price: 1000, priceType: 'monthly'},
+          {title: ['Ejecución en Youtube'], price: 1000, priceType: 'monthly'},
+          {title: ['Ejecución en Google'], price: 1000, priceType: 'monthly'},
         ]
       }
     ];
@@ -88,7 +88,7 @@ export class AppComponent implements OnInit {
     const services = selectedServices(this.services)
       .reduce((obj, service) => {
         const serviceItems = service.items.reduce((obj, item) => {
-          const itemPrice = item.price !== undefined ? `\$ ${item.price.toFixed(2)}` : 'A consultar';
+          const itemPrice = item.price !== undefined ? `\$ ${item.price.toFixed(2)} (${item.priceType === 'fixed' ? 'Fijo' : 'Mensual'})` : 'A consultar';
           obj[item.title.join(', ')] = itemPrice;
           return obj;
         }, {});
@@ -101,7 +101,10 @@ export class AppComponent implements OnInit {
     const data = {
       contact: this.contactData,
       services,
-      total: `\$ ${servicesTotal.toFixed(2)}`
+      total: {
+        fixed: `\$ ${servicesTotal.fixed.toFixed(2)}`,
+        monthly: `\$ ${servicesTotal.monthly.toFixed(2)}`
+      }
     };
 
     this.http.post('https://ideenegocios.com.ar:3001/idee-negocios', data)

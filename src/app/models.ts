@@ -1,6 +1,7 @@
 export interface Item {
   title: string[];
   price?: number;
+  priceType?: 'fixed' | 'monthly';
   selected?: boolean;
 }
 
