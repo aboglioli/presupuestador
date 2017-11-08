@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as R from 'ramda';
 
 @Component({
   selector: 'app-root',
@@ -73,6 +74,15 @@ export class AppComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.services);
+    const services = this.services
+      .map(service => {
+        return {
+          ...R.omit(['selected'], service),
+          items: service.items.filter(item => item.selected).map(R.omit(['selected']))
+        }
+      })
+      .filter(service => service.items.length > 0);
+
+    console.log(services);
   }
 }
