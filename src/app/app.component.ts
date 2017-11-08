@@ -101,7 +101,7 @@ export class AppComponent implements OnInit {
       total: `\$ ${servicesTotal.toFixed(2)}`
     };
 
-    this.http.post('https://ideenegocios.com.ar:3001/alan-boglioli', data)
+    this.http.post('https://ideenegocios.com.ar:3001/idee-negocios', data)
       .subscribe(res => {
         console.log(res);
         this.formSent = true;
