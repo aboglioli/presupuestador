@@ -4,10 +4,10 @@
   </div>
 
   <div class="col-12 col-lg">
-    <app-service *ngFor="let section of sections" [section]="section"></app-service>
+    <app-service *ngFor="let service of services" [service]="service"></app-service>
   </div>
 
   <div class="col-12 col-lg-3">
-    <app-total [sections]="sections"></app-total>
+    <app-total [services]="services"></app-total>
   </div>
 </div>

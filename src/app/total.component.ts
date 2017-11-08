@@ -1,43 +1,31 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as R from 'ramda';
 
+import { Service, selectedServices, subtotal, total } from './models';
+
 @Component({
   selector: 'app-total',
   templateUrl: './total.component.html'
 })
 export class TotalComponent implements OnInit {
-  @Input() sections: any;
+  private _services: Service[];
+
+  selectedServices = selectedServices;
+  subtotal = subtotal;
+  total = total;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  get services() {
-    return this.sections
-      .map(service => {
-        return {
-          ...R.omit(['selected'], service),
-          items: service.items.filter(item => item.selected).map(R.omit(['selected']))
-        }
-      })
-      .filter(service => service.items.length > 0);
+  @Input()
+  set services(services: Service[]) {
+    this._services = services;
   }
 
-  subtotal(items: any[]) {
-    return items.reduce((price, item) => {
-      if(item.selected) {
-        return price + item.price;
-      }
-
-      return price;
-    }, 0);
-  }
-
-  total() {
-    return this.sections.reduce((price, section) => {
-      return price + this.subtotal(section.items);
-    }, 0);
+  get services(): Service[] {
+    return selectedServices(this._services);
   }
 
 }

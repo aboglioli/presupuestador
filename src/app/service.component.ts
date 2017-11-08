@@ -1,38 +1,31 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Service, subtotal } from './models';
+
 @Component({
   selector: 'app-service',
   templateUrl: './service.component.html'
 })
 export class ServiceComponent implements OnInit {
-  @Input() section: any;
+  @Input() service: Service;
+
+  subtotal = subtotal;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  selectSection(section: any) {
-    section.selected = !section.selected;
-
-    section.items.forEach(item => item.selected = section.selected);
-  }
-
-  subtotal(items: any[]) {
-    return items.reduce((price, item) => {
-      if(item.selected) {
-        return price + item.price;
-      }
-
-      return price;
-    }, 0);
+  selectService(service: any) {
+    service.selected = !service.selected;
+    service.items.forEach(item => item.selected = service.selected);
   }
 
   firstItem() {
-    return this.section.items[0];
+    return this.service.items[0];
   }
 
   lastItems() {
-    return this.section.items.slice(1);
+    return this.service.items.slice(1);
   }
 }

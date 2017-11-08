@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import * as R from 'ramda';
 
+import { Service, selectedServices } from './models';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  services: any;
+  services: Service[];
   contactData: any = {};
   contactValid = false;
 
@@ -75,14 +77,7 @@ export class AppComponent implements OnInit {
   }
 
   submit() {
-    const services = this.services
-      .map(service => {
-        return {
-          ...R.omit(['selected'], service),
-          items: service.items.filter(item => item.selected).map(R.omit(['selected']))
-        }
-      })
-      .filter(service => service.items.length > 0);
+    const services = selectedServices(this.services);
 
     const data = {
       contact: this.contactData,

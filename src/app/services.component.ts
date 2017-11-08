@@ -7,14 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ServicesComponent implements OnInit {
   @Input() services: any;
 
-  sections: any = [];
-
   ngOnInit() {
-    this.sections = this.formatFields(this.services);
+    this.services = this.formatFields(this.services);
   }
 
-  private formatFields(sections: any, defaultSelection = false) {
-    return sections.map(field => {
+  private formatFields(services: any, defaultSelection = false) {
+    return services.map(field => {
       if(!field['selected']) field['selected'] = defaultSelection;
       field.items = field.items.map(item => {
         if(!item['selected']) item['selected'] = defaultSelection;

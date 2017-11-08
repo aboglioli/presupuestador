@@ -1,10 +1,10 @@
 <div class="panel">
-  <div class="header" (click)="selectSection(section)">
+  <div class="header" (click)="selectService(service)">
     <div class="left">
-      <img [class.active]="section.selected" src="/assets/tick.png" class="tick" />
+      <img [class.active]="service.selected" src="/assets/tick.png" class="tick" />
     </div>
     <div class="right">
-      <h2 class="title">{{section.title}}</h2>
+      <h2 class="title">{{service.title}}</h2>
     </div>
   </div>
 
@@ -24,6 +24,6 @@
   </div>
 
   <div class="footer">
-    Subtotal <span class="subtotal">${{subtotal(section.items).toFixed(2)}}</span>
+    Subtotal <span class="subtotal">${{subtotal(service.items).toFixed(2)}}</span>
   </div>
 </div>
