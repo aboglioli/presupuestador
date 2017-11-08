@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div *ngIf="!formSent" class="container-fluid">
   <header class="header">
     <h1>PRESUPUESTADOR</h1>
   </header>
@@ -14,4 +14,13 @@
       <button class="btn btn-primary" (click)="submit()" [disabled]="!contactValid">Enviar</button>
     </div>
   </div>
+</div>
+
+<div *ngIf="formSent" class="container-fluid">
+  <header class="header">
+    <h1>
+      ¡MUCHAS GRACIAS! <br/>
+      En breve nos comunicaremos con vos.
+    </h1>
+  </header>
 </div>

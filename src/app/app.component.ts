@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import * as R from 'ramda';
 
 import { Service } from './models';
-import { selectedServices } from './utils';
+import { selectedServices, total } from './utils';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,9 @@ export class AppComponent implements OnInit {
   services: Service[];
   contactData: any = {};
   contactValid = false;
+  formSent = false;
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.services = [
@@ -78,18 +82,28 @@ export class AppComponent implements OnInit {
   }
 
   submit() {
-    const services = selectedServices(this.services);
+    const services = selectedServices(this.services)
+      .reduce((obj, service) => {
+        const serviceItems = service.items.reduce((obj, item) => {
+          obj[item.title.join(', ')] = `\$ ${item.price.toFixed(2)}`;
+          return obj;
+        }, {});
+
+        obj[service.title] = serviceItems;
+        return obj;
+      }, {});
+    const servicesTotal = total(this.services);
 
     const data = {
       contact: this.contactData,
       services,
-      total: services.reduce(
-        (price, service) => price + service.items.reduce(
-          (price, item) => price + item.price,
-          0),
-        0)
+      total: `\$ ${servicesTotal.toFixed(2)}`
     };
 
-    console.log(data);
+    this.http.post('https://ideenegocios.com.ar:3001/alan-boglioli', data)
+      .subscribe(res => {
+        console.log(res);
+        this.formSent = true;
+      });
   }
 }
