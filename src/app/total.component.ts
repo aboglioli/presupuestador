@@ -12,9 +12,6 @@ import { selectedServices, subtotal, total } from './utils';
 export class TotalComponent implements OnInit {
   private _services: Service[];
 
-  selectedServices = selectedServices;
-  subtotal = subtotal;
-
   constructor() { }
 
   ngOnInit() {
