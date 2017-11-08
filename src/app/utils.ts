@@ -15,7 +15,7 @@ export function selectedServices(services: Service[]) {
 
 export function subtotal(items: Item[]) {
   return items.reduce((price, item) => {
-    if(item.selected) {
+    if(item.selected && typeof item.price === 'number') {
       return price + item.price;
     }
 

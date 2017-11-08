@@ -1,6 +1,6 @@
 export interface Item {
   title: string[];
-  price: number;
+  price?: number;
   selected?: boolean;
 }
 

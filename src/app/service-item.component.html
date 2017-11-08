@@ -10,6 +10,7 @@
 
   <div class="right" [class.selected]="item.selected">
     <h3 *ngFor="let title of item.title" class="title">{{title}}</h3>
-    <span class="price">${{item.price.toFixed(2)}}</span>
+    <span *ngIf="item.price !== undefined; else noPrice" class="price">${{item.price.toFixed(2)}}</span>
+    <ng-template #noPrice><span class="price">A consultar</span></ng-template>
   </div>
 </div>

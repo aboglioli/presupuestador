@@ -62,9 +62,9 @@ export class AppComponent implements OnInit {
         title: 'Desarrollo/Sistemas',
         items: [
           {title: ['Administración de servidor', 'Mantenimiento web', 'Instalación y configuración de sistemas', ], price: 1000},
-          {title: ['Sistema personalizado'], price: 0.0},
-          {title: ['Aplicación móvil'], price: 0.0},
-          {title: ['Aplicación de escritorio'], price: 0.0}
+          {title: ['Sistema personalizado']},
+          {title: ['Aplicación móvil']},
+          {title: ['Aplicación de escritorio']}
         ]
       },
       {
@@ -85,7 +85,8 @@ export class AppComponent implements OnInit {
     const services = selectedServices(this.services)
       .reduce((obj, service) => {
         const serviceItems = service.items.reduce((obj, item) => {
-          obj[item.title.join(', ')] = `\$ ${item.price.toFixed(2)}`;
+          const itemPrice = item.price !== undefined ? `\$ ${item.price.toFixed(2)}` : 'A consultar';
+          obj[item.title.join(', ')] = itemPrice;
           return obj;
         }, {});
 
