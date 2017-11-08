@@ -9,7 +9,6 @@ body, html {
   color: #1d2129;
   font-family: Ubuntu,Helvetica,Arial;
   font-size: 16px;
-  padding: 1rem;
 }
 
 .header {
@@ -187,11 +186,12 @@ h1 {
 
 .panel {
   &.panel-total {
-    font-size: 2rem;
-    padding: .5rem 1rem;
+    .footer {
+      font-size: 2rem;
 
-    .total {
-      font-weight: bold;
+      .total {
+        font-weight: bold;
+      }
     }
   }
 }

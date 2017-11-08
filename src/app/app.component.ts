@@ -7,7 +7,8 @@ import * as R from 'ramda';
 })
 export class AppComponent implements OnInit {
   services: any;
-  contactData: any;
+  contactData: any = {};
+  contactValid = false;
 
   ngOnInit() {
     this.services = [
@@ -83,6 +84,16 @@ export class AppComponent implements OnInit {
       })
       .filter(service => service.items.length > 0);
 
-    console.log(services);
+    const data = {
+      contact: this.contactData,
+      services,
+      total: services.reduce(
+        (price, service) => price + service.items.reduce(
+          (price, item) => price + item.price,
+          0),
+        0)
+    };
+
+    console.log(data);
   }
 }

@@ -1,12 +1,17 @@
-<header class="header">
-  <h1>PRESUPUESTADOR</h1>
-</header>
+<div class="container-fluid">
+  <header class="header">
+    <h1>PRESUPUESTADOR</h1>
+  </header>
 
-<app-services [services]="services"></app-services>
-<app-contact (contactData)="contactData = $event"></app-contact>
+  <app-services [services]="services"></app-services>
+  <app-contact
+    (contactData)="contactData = $event"
+    (contactValid)="contactValid = $event">
+  </app-contact>
 
-<div class="row">
-  <div class="col text-right">
-    <button class="btn btn-primary" (click)="submit()">Enviar</button>
+  <div class="row">
+    <div class="col text-right">
+      <button class="btn btn-primary" (click)="submit()" [disabled]="!contactValid">Enviar</button>
+    </div>
   </div>
 </div>

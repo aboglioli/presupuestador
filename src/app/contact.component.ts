@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ContactComponent implements OnInit {
   @Output() contactData = new EventEmitter<any>();
+  @Output() contactValid = new EventEmitter<boolean>();
 
   contactForm: FormGroup;
   businessTypes = ['Emprendimiento', 'Empresa'];
@@ -25,7 +26,10 @@ export class ContactComponent implements OnInit {
     });
 
 
-    this.contactForm.valueChanges.subscribe(data => this.contactData.emit(data));
+    this.contactForm.valueChanges.subscribe(data => {
+      this.contactData.emit(data);
+      this.contactValid.emit(this.contactForm.valid);
+    });
   }
 
 }
