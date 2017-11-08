@@ -1,18 +1,19 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as R from 'ramda';
 
-import { Service, selectedServices, subtotal, total } from './models';
+import { Service } from './models';
+import { selectedServices, subtotal, total } from './utils';
 
 @Component({
   selector: 'app-total',
-  templateUrl: './total.component.html'
+  templateUrl: './total.component.html',
+  styleUrls: ['./total.component.scss']
 })
 export class TotalComponent implements OnInit {
   private _services: Service[];
 
   selectedServices = selectedServices;
   subtotal = subtotal;
-  total = total;
 
   constructor() { }
 
@@ -26,6 +27,10 @@ export class TotalComponent implements OnInit {
 
   get services(): Service[] {
     return selectedServices(this._services);
+  }
+
+  total() {
+    return total(this._services);
   }
 
 }

@@ -1,0 +1,17 @@
+.services {
+  padding: 15px 5px;
+
+  .service {
+    display: block;
+  }
+
+  .service-items {
+    padding: 0;
+    padding-left: 15px;
+
+    .service-item {
+      display: block;
+      /* margin: 0; */
+    }
+  }
+}

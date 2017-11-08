@@ -3,13 +3,20 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <div *ngIf="services.length > 0; else noSelectedServices">{{services | json}}</div>
+          <div *ngIf="services.length > 0; else noSelectedServices">
+            <ul *ngFor="let service of services" class="services">
+              <li class="service"><b>{{service.title}}</b></li>
+              <ul *ngFor="let item of service.items" class="service-items">
+                <li *ngFor="let itemTitle of item.title" class="service-item">{{itemTitle}}</li>
+              </ul>
+            </ul>
+          </div>
           <ng-template #noSelectedServices>No hay servicios seleccionados</ng-template>
         </div>
       </div>
     </div>
   </div>
   <div class="footer">
-    Total <span class="total">${{total(services).toFixed(2)}}</span>
+    Total <span class="total">${{total().toFixed(2)}}</span>
   </div>
 </div>

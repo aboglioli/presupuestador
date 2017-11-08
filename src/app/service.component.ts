@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Service, subtotal } from './models';
+import { Service } from './models';
+import { subtotal } from './utils';
 
 @Component({
   selector: 'app-service',

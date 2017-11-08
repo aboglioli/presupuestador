@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as R from 'ramda';
 
-import { Service, selectedServices } from './models';
+import { Service } from './models';
+import { selectedServices } from './utils';
 
 @Component({
   selector: 'app-root',
