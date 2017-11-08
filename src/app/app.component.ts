@@ -25,18 +25,18 @@ export class AppComponent implements OnInit {
       {
         title: 'Web',
         items: [
-          {title: ['UX/UI', 'SEO', 'Servidor y dominio'], price: 4000, priceType: 'monthly'},
-          {title: ['Landing page'], price: 4000.0, priceType: 'fixed'},
-          {title: ['Web personalizada'], price: 6000.0, priceType: 'fixed'},
-          {title: ['E-commerce'], price: 20000.0, priceType: 'fixed'},
+          {title: ['UX/UI', 'SEO', 'Servidor y dominio'], price: 3000, priceType: 'monthly'},
+          {title: ['Landing page'], price: 5000.0, priceType: 'fixed'},
+          {title: ['Web personalizada'], price: 8000.0, priceType: 'fixed'},
+          {title: ['E-commerce'], price: 25000.0, priceType: 'fixed'},
         ]
       },
       {
         title: 'Marketing',
         items: [
-          {title: ['Análsis de mercado', 'Análisis de competencia', 'Análisis de público objetivo', 'Segmentación y posicionamiento', 'Definición de plan estratégico', ], price: 2000, priceType: 'monthly'},
-          {title: ['Asesoría de Marketing Digital'], price: 2000.0, priceType: 'fixed'},
-          {title: ['Marketing en punto de venta'], price: 2000.0, priceType: 'monthly'}
+          {title: ['Análsis de mercado', 'Análisis de competencia', 'Análisis de público objetivo', 'Segmentación y posicionamiento', 'Definición de plan estratégico', ], price: 3000, priceType: 'monthly'},
+          {title: ['Asesoría de Marketing Digital'], price: 3000.0, priceType: 'monthly'},
+          {title: ['Marketing en punto de venta'], price: 3000.0, priceType: 'monthly'}
         ]
       },
       {
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
           {title: ['Merchandising'], price: 1000.0, priceType: 'fixed'},
           {title: ['Diseño de punto de venta'], price: 1500.0, priceType: 'fixed'},
           {title: ['Banners'], price: 350.0, priceType: 'fixed'},
-          {title: ['Diseño de revistas, folletos y diarios'], price: 500.0, priceType: 'fixed'},
+          {title: ['Diseño de revistas, folletos y diarios'], price: 800.0, priceType: 'fixed'},
         ]
       },
       {
@@ -64,7 +64,8 @@ export class AppComponent implements OnInit {
       {
         title: 'Desarrollo/Sistemas',
         items: [
-          {title: ['Administración de servidor', 'Mantenimiento web', 'Instalación y configuración de sistemas', ], price: 1200, priceType: 'monthly'},
+          {title: ['Mantenimiento web', 'Instalación y configuración de sistemas', ], price: 2000, priceType: 'monthly'},
+          {title: ['Administración de servidor'], price: 1200, priceType: 'monthly'},
           {title: ['Sistema personalizado']},
           {title: ['Aplicación móvil']},
           {title: ['Aplicación de escritorio']}
@@ -73,7 +74,8 @@ export class AppComponent implements OnInit {
       {
         title: 'Publicidad Online',
         items: [
-          {title: ['Configuración de perfiles publicitarios', 'Planificación de anuncios'], price: 3000, priceType: 'monthly'},
+          {title: ['Configuración de perfiles publicitarios', 'Planificación de anuncios'], price: 3000, priceType: 'fixed'},
+          {title: ['Monitorización y optimización'], price: 2000, priceType: 'monthly'},
           {title: ['Ejecución en Facebook'], price: 1000, priceType: 'monthly'},
           {title: ['Ejecución en Instagram'], price: 1000, priceType: 'monthly'},
           {title: ['Ejecución en Twitter'], price: 1000, priceType: 'monthly'},
