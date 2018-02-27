@@ -3,6 +3,8 @@
     <h1>PRESUPUESTADOR</h1>
   </header>
 
+  <app-suggested-plan [services]="services"></app-suggested-plan>
+
   <app-services [services]="services"></app-services>
 
   <app-contact
@@ -10,7 +12,7 @@
     (contactValid)="contactValid = $event">
   </app-contact>
 
-  <div class="row">
+  <div class="row mb-3">
     <div class="col text-right">
       <button class="btn btn-primary" (click)="submit()" [disabled]="!contactValid">Enviar</button>
     </div>

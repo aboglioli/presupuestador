@@ -11,7 +11,7 @@
   <div class="right" [class.selected]="item.selected">
     <h3 *ngFor="let title of item.title" class="title">{{title}}</h3>
     <span *ngIf="item.price !== undefined; else noPrice" class="price">
-      ${{item.price.toFixed(2)}} <span *ngIf="item.priceType === 'monthly'">por mes</span>
+      ${{item.price}} <span *ngIf="item.priceType === 'monthly'">por mes</span>
     </span>
     <ng-template #noPrice><span class="price">A consultar</span></ng-template>
   </div>

@@ -9,6 +9,7 @@ import { ServicesComponent } from './services.component';
 import { TotalComponent } from './total.component';
 import { ServiceItemComponent } from './service-item.component';
 import { ServiceComponent } from './service.component';
+import { SuggestedPlanComponent } from './suggested-plan.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ServiceComponent } from './service.component';
     ContactComponent,
     TotalComponent,
     ServiceItemComponent,
-    ServiceComponent
+    ServiceComponent,
+    SuggestedPlanComponent
   ],
   imports: [
     BrowserModule,
