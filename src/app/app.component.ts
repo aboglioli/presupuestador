@@ -107,7 +107,7 @@ export class AppComponent implements OnInit {
       }
     };
 
-    this.http.post('https://ideenegocios.com.ar:3001/idee-negocios', data)
+    this.http.post('https://dev.ideenegocios.com.ar:3001/idee-negocios', data)
       .subscribe(res => {
         console.log(res);
         this.formSent = true;
