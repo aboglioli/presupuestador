@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
         title: 'Web',
         items: [
           { title: ['UX/UI', 'SEO', 'Servidor y dominio', 'Analítica web', 'Mantenimiento'], price: 6000, priceType: 'monthly' },
-          { title: ['Landing page'], price: 6000, priceType: 'fixed' },
-          { title: ['Web personalizada'], price: 10000, priceType: 'fixed' },
+          { title: ['Landing page'], price: 6500, priceType: 'fixed' },
+          { title: ['Web personalizada'], price: 13000, priceType: 'fixed' },
           { title: ['E-commerce'], price: 25000, priceType: 'fixed' },
         ]
       },
